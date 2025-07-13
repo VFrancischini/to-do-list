@@ -12,19 +12,19 @@ public class TaskManager
     
     public void ListTasks()
     {
-        if (_listOfTasks.Count == 0)
+        if (_listOfTasks.Count != 0)
         {
-            Console.WriteLine("Nenhuma tarefa encontrada!");
+            var index = 0;
+            foreach (var task in _listOfTasks)
+            {
+                Console.WriteLine($"[{index}] {task.Name} => {(task.Status ? "Concluída" : "Não Concluida")}");
+                index++;
+            }
             Console.ReadKey();
             Menu.ShowMenu();
         }
         
-        var index = 0;
-        foreach (var task in _listOfTasks)
-        {
-            Console.WriteLine($"[{index}] {task.Name} => {(task.Status ? "Concluída" : "Não Concluida")}");
-            index++;
-        }
+        Console.WriteLine("Nenhuma tarefa encontrada!");
         Console.ReadKey();
         Menu.ShowMenu();
     }

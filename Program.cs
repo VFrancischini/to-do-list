@@ -14,9 +14,11 @@ switch (menuOption)
         taskManager.AddTask(task);
         break;
     case "2":
+        Console.Clear();
         taskManager.ListTasks();
         break;
     case "3":
+        Console.Clear();
         taskManager.ListTasks();
         Console.Write("Qual tarefa deseja excluir (id): ");
         var idTask = int.Parse(Console.ReadLine());
